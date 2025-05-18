@@ -5,12 +5,13 @@ import { useNavigate } from 'react-router-dom';
 const Home = () => {
   const navigate = useNavigate();
 
-  const handleRedirect = async () => {
-    navigate('/feature');
+  const handleRedirect = async (path) => {
+    navigate(path);
   };
 
   return (
     <div className="app-container">
+      <button onClick={() => handleRedirect('/shape')}>Shape</button>
       <video autoPlay loop muted className="background-video">
         <source src="/bg.mp4" type="video/mp4" />
         Your browser does not support the video tag.
@@ -19,7 +20,7 @@ const Home = () => {
         <Input
           placeholder="Enter your word"
           className="home_input_text"
-          onPressEnter={handleRedirect}
+          onPressEnter={() => handleRedirect("/feature")}
           style={{
             background: 'transparent',
             width: '60%',
